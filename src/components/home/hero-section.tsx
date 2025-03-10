@@ -20,7 +20,7 @@ const HeroSection = () => {
           Give Hope to Children in Need
         </h1>
         <p className="text-xl mb-8 max-w-2xl">
-          Your donation to MAMA FATIMA Children's Home provides shelter, education, and love to vulnerable children.
+          Your donation to MAMA FATIMA Children&apos;s Home provides shelter, education, and love to vulnerable children.
         </p>
         <Button asChild size="lg" className="mr-4">
           <Link href="/donate">Donate Now</Link>
