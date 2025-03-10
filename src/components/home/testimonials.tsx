@@ -8,7 +8,7 @@ const Testimonials = () => {
           <footer>- A Happy Child</footer>
         </blockquote>
         <blockquote className="border-l-4 border-blue-500 pl-4">
-          <p>"The support we received was incredible. Thank you for your generosity!"</p>
+          <p>&quot;The support we received was incredible. Thank you for your generosity!&quot;</p>
           <footer>- A Grateful Parent</footer>
         </blockquote>
       </div>

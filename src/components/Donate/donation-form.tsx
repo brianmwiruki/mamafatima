@@ -22,13 +22,23 @@ const donationSchema = z.object({
   isMonthly: z.boolean().default(false),
 })
 
+// Define the type for the form data
+type DonationFormData = {
+  amount: string;
+  customAmount?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  isMonthly: boolean;
+};
+
 const DonationForm = () => {
   const router = useRouter()
   const [isCustomAmount, setIsCustomAmount] = useState(false)
   const [selectedAmount, setSelectedAmount] = useState('25')
   const [showPayPalButtons, setShowPayPalButtons] = useState(false)
   
-  const { register, handleSubmit, watch, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<DonationFormData>({
     resolver: zodResolver(donationSchema),
     defaultValues: {
       amount: "25",
@@ -38,8 +48,8 @@ const DonationForm = () => {
 
   const watchIsMonthly = watch('isMonthly')
   
-  const onSubmit = async (data: any) => {
-    const amount = isCustomAmount ? data.customAmount : data.amount
+  const onSubmit = async (data: DonationFormData) => {
+    const amount = isCustomAmount ? data.customAmount || '0' : data.amount
     setSelectedAmount(amount)
     setShowPayPalButtons(true)
     
